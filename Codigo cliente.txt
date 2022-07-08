@@ -1,0 +1,45 @@
+import java.net.InetAddress;
+import java.util.Scanner;
+import java.net.*;
+import java.io.*;
+
+public class Cliente{
+
+    public static void main(String[] args) {
+        try {
+            Scanner scn = new Scanner(System.in);
+
+            //Obtener la ip del localhost
+            InetAddress ip = InetAddress.getByName("localhost");
+
+            //Establecer conexion con el puerto
+            Socket s = new Socket(ip, 10000);
+
+            DataInputStream dis = new DataInputStream(s.getInputStream());
+            DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+
+            while (true) {
+
+                System.out.println(dis.readUTF());
+                String tosend = scn.nextLine();
+                dos.writeUTF(tosend);
+
+                if (tosend.equals("Exit")) {
+                    System.out.println("Closing this connection : " + s);
+                    s.close();
+                    System.out.println("Connection closed");
+                    break;
+                }
+                String received = dis.readUTF();
+                System.out.println(received);
+            }
+
+            scn.close();
+            dis.close();
+            dos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+}
