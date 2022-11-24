@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang = "es">
+    <head>
+    <meta charset = "UTF-8">
+    <title></title>
+    <meta name = "viewport" content = "width-device-width, user-scalable-no", initial-scale-1.0, maximum-scale-1.0, minimum-scale-1.0>
+    <link rel = "stylesheet" href = "estilos-registro.css">
+    <script src = "validar-registro.js"></script>
+    </head> 
+
+    <body>
+        <h1>Formulario de registro</h1>
+        <form action = "registrar.php" method = "post" class = "form-register" onsubmit = "return validar();">
+            <h2 class = "form__titulo">Crea una cuenta</h2>
+            <div class = "contenedor-inputs">
+                <input type = "text" id = "nombre" name = "nombre" placeholder = "Nombre" class = "input-48" required>
+                <input type = "text" id = "apellidos" name = "apellidos" placeholder = "Apellidos" class = "input-48" required>
+                <input type = "email" id = "correo" name = "correo" placeholder = "Correo" class = "input-100" required>
+                <input type = "text" id = "usuario" name = "usuario" placeholder = "Usuario" class = "input-48" required>
+                <input type = "password" id = "clave" name = "clave" placeholder = "Contraseña" class = "input-48" required>
+                <input type = "text" id = "telefono" name = "telefono" placeholder = "Telefono" class = "input-100" required>
+                <input type = "submit" value = "Registrar" class = "btn-enviar">
+                <p class = "form__link">
+                    ¿Ya tienes una cuenta? <a href = "login.html">Ingresa aqui</a>
+                </p>
+
+            </div>
+        </form>
+    </body>
+</html>
